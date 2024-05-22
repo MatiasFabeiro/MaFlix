@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { inter } from "./ui/fonts";
 import "./globals.css";
+import NavBar from "./ui/home/navbar";
 
 export const metadata: Metadata = {
   title: "MAFlix",
@@ -14,7 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NavBar/>
+        
+        {children}
+      
+      </body>
     </html>
   );
 }
