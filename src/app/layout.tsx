@@ -4,7 +4,7 @@ import "./globals.css";
 import NavBar from "./ui/home/navbar";
 
 export const metadata: Metadata = {
-  title: "MAFlix",
+  title: "MaFlix",
   description: "Watch movies online",
 };
 
