@@ -28,7 +28,7 @@ export default async function Movies() {
                 alt={`${movie.title} Image`}
                 width={220}
                 height={330}
-                className="flex justify-center items-center mb-8 border border-white cursor-pointer"
+                className="flex justify-center items-center mb-8 border border-white cursor-pointer transform transition-all ease-in-out duration-300 hover:scale-110"
               />
             </Link>
           </div>
