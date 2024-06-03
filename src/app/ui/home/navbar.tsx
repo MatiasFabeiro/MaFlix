@@ -11,7 +11,7 @@ export default function NavBar () {
           <p className={`${oswald.className} text-red-600 text-2xl my-4 md:text-[46px] 
             inline-block transform transition-all ease-in-out duration-300 origin-center hover:scale-110`}
           > 
-            MaFlix 
+            MaFlix
           </p>
         </Link>
         

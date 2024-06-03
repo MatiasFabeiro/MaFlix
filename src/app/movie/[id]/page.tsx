@@ -29,6 +29,11 @@ export default async function Movie({ params }: {params: { id: string } }) {
                 <StarIcon className="h-[24px] w-[24px] text-white ml-4 mr-1"/> 
                 {movie.vote_average}
               </p>
+
+              <p className="flex flex-row text-[24px] max-w-[30rem] items-center"> 
+                <strong> Rated: </strong> 
+                &nbsp;{movie.adult ? "+18" : "All public"}
+              </p>
             </div>
             
             <Image
