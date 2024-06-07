@@ -1,19 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getPopularMoviesByWeek } from "@/app/lib/api/data";
+import { getPlayingNowMovies } from "@/app/lib/api/data";
 
-export default async function Movies() {
-  const popularMoviesWeek = await getPopularMoviesByWeek();
+export default async function WeekMovies() {
+  const playingNowMovies = await getPlayingNowMovies();
   const imageURL = 'https://media.themoviedb.org/t/p/w220_and_h330_face/'
 
   return (
     <div className="flex flex-col items-center justify-center lg:p-24 md:flex-row md:flex-wrap md:gap-10 lg:gap-20">
-      {popularMoviesWeek?.map((movie) => {
+      {playingNowMovies?.map((movie, index) => {
         const title = movie.title || movie.name || movie.original_title || movie.original_name;
 
         return(
           <div
-            key={title}
+            key={`${title}-playing-now-${index}`}
             className="flex flex-col justify-center items-center"
           >
             <p className="w-11/12 max-w-[200px] h-[80px] flex items-center justify-center text-xl text-center my-4"> 

@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { getPopularMoviesByWeek } from "@/app/lib/api/data";
+import { getAllMovies } from "@/app/lib/api/data";
 import { StarIcon } from '@heroicons/react/24/outline';
 
 export default async function Movie({ params }: {params: { id: string } }) {
   const id = params.id;
-  const popularMoviesWeek = await getPopularMoviesByWeek();
+  const allMovies = await getAllMovies();
   const imageURL = 'https://media.themoviedb.org/t/p/w220_and_h330_face/'
   
   return (
-    popularMoviesWeek.filter(movie => movie.id.toString() === id).map((movie) => {
+    allMovies.filter(movie => movie.id.toString() === id).map((movie) => {
       const title = movie.title || movie.name || movie.original_title || movie.original_name;
       
       return(
