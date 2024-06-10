@@ -32,7 +32,7 @@ export default async function Movie({ params }: {params: { id: string } }) {
 
               <p className="flex flex-row text-[24px] max-w-[30rem] items-center"> 
                 <strong> Rated: </strong> 
-                &nbsp;{movie.adult ? "+18" : "All public"}
+                &nbsp;{movie.adult  === true ? "+18" : "All public"}
               </p>
             </div>
             
