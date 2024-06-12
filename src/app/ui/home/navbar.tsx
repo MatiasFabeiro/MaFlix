@@ -15,7 +15,7 @@ export default function NavBar () {
           </p>
         </Link>
         
-        <Search placeholder="Search..."/>
+        <Search placeholder="Search movie..."/>
 
       </div>
     </nav>

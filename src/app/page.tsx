@@ -6,11 +6,7 @@ import UpcomingMovies from '@/app/ui/home/upcoming_movies'
 export default function Home({searchParams} : {searchParams: { search?: string } }) {
 
   const searchQuery = searchParams?.search?.toLowerCase() || '';
-  console.log("searchQuery",searchQuery)
-  console.log("searchParams",searchParams)
   
-
-
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1 className="text-[32px] mb-20 font-black md:self-start lg:ml-20 lg:mb-0"> Now playing: </h1>

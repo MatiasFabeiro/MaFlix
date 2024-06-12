@@ -22,22 +22,27 @@ export default async function NowPlayingMovies({ searchQuery }: {searchQuery: st
         return(
           <div
             key={`${title}-playing-now-${index}`}
-            className="flex flex-col justify-center items-center"
+            className="relative flex flex-col justify-center items-center mb-8 overflow-hidden"
+            // className="flex flex-col justify-center items-center"
           >
-            <p className="w-11/12 max-w-[200px] h-[80px] flex items-center justify-center text-xl text-center my-4"> 
-              {title} 
-            </p>
-            
             <Link
               href={`/movie/${movie.id}`}
             >
-              <Image
-                src={`${imageURL}${movie.poster_path}`}
-                alt={`${movie.title} Image`}
-                width={220}
-                height={330}
-                className="flex justify-center items-center mb-8 border border-white cursor-pointer transform transition-all ease-in-out duration-300 hover:scale-110"
-              />
+              <div className="relative w-[220px] h-[330px]">
+                <Image
+                  src={`${imageURL}${movie.poster_path}`}
+                  alt={`${movie.title} Image`}
+                  width={220}
+                  height={330}
+                  className="flex justify-center items-center mb-8 border border-white cursor-pointer transform transition-all ease-in-out duration-300 hover:scale-110"
+                />
+                <div className="absolute bottom-0 w-full bg-black bg-opacity-50 text-white text-center p-2 backdrop-blur-sm">
+                  {title} 
+                </div>
+                {/* <p className="w-11/12 max-w-[200px] h-[80px] flex items-center justify-center text-xl text-center my-4 bg-black bg-opacity-30"> 
+                  {title} 
+                </p> */}
+              </div>
             </Link>
           </div>
         )
