@@ -1,4 +1,4 @@
-import { PopularMoviesWeek } from "../definitions";
+import { PopularMoviesWeek, MoviesImages } from "../definitions";
 
 export async function getPopularMoviesByWeek () {
   const url = `https://api.themoviedb.org/3/trending/all/week`
@@ -117,8 +117,8 @@ export async function getAllMovies() {
     const [playingNowMovies, popularMoviesWeek, topRatedMovies, upcomingMovies] = await Promise.all([
       getPlayingNowMovies(),
       getPopularMoviesByWeek(),
-      getTopRatedMovies()
-      ,getUpcomingMovies()
+      getTopRatedMovies(),
+      getUpcomingMovies()
     ]);
 
     const allMoviesMap = new Map();
@@ -134,4 +134,32 @@ export async function getAllMovies() {
     console.error('Failed to fetch movies:', error);
     throw error;
   }
+}
+
+export async function getImageMovies(id: number) {
+  const url = `https://api.themoviedb.org/3/movie/${id}/images`
+
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: `Bearer ${process.env.TMDB_BEARER_TOKEN}`
+    }
+  }
+
+  const response = await fetch(url, options);
+  
+  if(!response.ok){
+    throw new Error('Failed to fetch data from TMDB');
+  }
+
+  const responseData = await response.json();
+
+  if (!responseData.backdrops) {
+    throw new Error('No "results" property in response data');
+  }
+
+  const images: MoviesImages = responseData.backdrops;
+
+  return images;
 }
